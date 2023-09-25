@@ -1,0 +1,186 @@
+// Reset css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    width: 100%;
+    background-color: black;
+}
+button {
+    font-family: inherit;
+    border: none;
+    background-color: transparent;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    position: relative;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@font-face {
+    font-family: "Peyda300";
+    src: url("../Font/Peyda-Regular.ttf");
+}
+@font-face {
+    font-family: "Peyda400";
+    src: url("../Font/Peyda-Medium.ttf");
+}
+// Colors
+$color-primary1: #b53bfe;
+$color-primary2: #fe457e;
+$color-primary3: #ff5353;
+$color-primary4: #ff8f4b;
+$color-primary5: #30e584;
+$color-primary6: #ffdb45;
+$color-primary7: #4694ff;
+
+$color-gray1: #1e2128;
+$color-gray2: #848484;
+$color-gray3: #f7f7f7;
+
+$color-secondary: #ffdb45;
+
+// Font
+html {
+    font-size: 100%;
+}
+
+body {
+    direction: rtl;
+    font-family: "Peyda400", Arial;
+    font-weight: 400;
+    line-height: 1.75;
+    color: #000000;
+}
+p {
+    margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Peyda400", Arial;
+    font-weight: 400;
+    line-height: 1.3;
+}
+$font-size-paragraph: 1rem;
+$font-size-h6: 1.125rem;
+$font-size-h5: 1.266rem;
+$font-size-h4: 1.424rem;
+$font-size-h3: 1.602rem;
+$font-size-h2: 1.802rem;
+$font-size-h1: 2.027rem;
+
+// Center with flex
+@mixin flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+// Transition
+@mixin transition($params...) {
+    transition: $params;
+}
+
+main {
+    h1 {
+        color: $color-gray3;
+        padding-top: 100px;
+
+        background-color: $color-gray1;
+        text-align: center;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        min-height: 200px;
+        justify-content: center;
+        align-content: center;
+        background-color: $color-gray1;
+        padding: 100px 20px;
+        div {
+            text-align: center;
+            font-size: $font-size-h6;
+            color: $color-gray3;
+            margin-bottom: 10px;
+
+            div {
+                width: 100px;
+                height: 100px;
+                border-radius: 10%;
+                border: 2px solid hsla(0, 0%, 100%, 0.336);
+                &:hover {
+                    animation: container 0.2s
+                        cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+                    border: 2px solid hsla(0, 0%, 100%, 0.459);
+                    @include transition(border 0.2s);
+                }
+            }
+            .box1 {
+                @include flex-center();
+                background-color: $color-primary1;
+                &:hover {
+                    &::after {
+                        content: "#b53bfe";
+                        color: #f7f7f7;
+                    }
+                }
+            }
+            .box2 {
+                background-color: $color-primary2;
+            }
+            .box3 {
+                background-color: $color-primary3;
+            }
+            .box4 {
+                background-color: $color-primary4;
+            }
+            .box5 {
+                background-color: $color-primary5;
+            }
+            .box6 {
+                background-color: $color-primary6;
+            }
+            .box7 {
+                background-color: $color-primary7;
+            }
+        }
+    }
+
+    @keyframes container {
+        0% {
+            box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+        100% {
+            box-shadow: inset 0 0 14px 0px rgba(0, 0, 0, 0.5);
+        }
+    }
+}
